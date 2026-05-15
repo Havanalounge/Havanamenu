@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Havana Lounge — Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#070e08;
+  --card:#0f1c10;
+  --card2:#132016;
+  --gold:#c9a84c;
+  --gold2:#e0c46a;
+  --gold3:#f0d98a;
+  --text:#e6dcc8;
+  --text2:#9a8f76;
+  --text3:#5e574a;
+  --border:rgba(201,168,76,0.15);
+  --border2:rgba(201,168,76,0.35);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+body::before{
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 5%, rgba(20,70,25,0.14) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 70% at 90% 90%, rgba(15,55,20,0.16) 0%,transparent 55%),
+    radial-gradient(ellipse 40% 40% at 80% 20%, rgba(10,40,14,0.08) 0%,transparent 50%);
+  pointer-events:none;z-index:0;
+}
+.container{position:relative;z-index:1;max-width:680px;margin:0 auto;padding-bottom:80px}
+
+/* HERO */
+.hero{text-align:center;padding:52px 24px 44px}
+.hero-eyebrow{
+  font-size:9px;letter-spacing:.55em;color:var(--gold);
+  text-transform:uppercase;font-weight:500;margin-bottom:18px;
+  display:flex;align-items:center;justify-content:center;gap:14px;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:40px;height:1px}
+.hero-eyebrow::before{background:linear-gradient(90deg,transparent,var(--gold))}
+.hero-eyebrow::after{background:linear-gradient(90deg,var(--gold),transparent)}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(58px,15vw,92px);color:var(--gold2);line-height:.9;display:block}
+.hero-lounge{font-family:'Playfair Display',serif;font-size:clamp(18px,4.5vw,28px);color:var(--gold);letter-spacing:.42em;text-transform:uppercase;font-weight:400;display:block;margin-top:6px}
+.hero-orn{display:flex;align-items:center;gap:12px;justify-content:center;margin:22px 0}
+.orn-line{flex:1;max-width:70px;height:1px}
+.orn-line.l{background:linear-gradient(90deg,transparent,var(--border2))}
+.orn-line.r{background:linear-gradient(90deg,var(--border2),transparent)}
+.orn-diamond{width:7px;height:7px;border:1px solid var(--gold);transform:rotate(45deg)}
+.hero-tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:13px;letter-spacing:.2em;color:var(--text2)}
+.hero-address{font-size:11px;color:var(--text3);margin-top:10px;letter-spacing:.08em}
+
+/* FORMULES */
+.formule-wrap{margin:0 14px 4px}
+.f-label{
+  font-size:9px;letter-spacing:.45em;color:var(--gold);text-transform:uppercase;font-weight:500;
+  text-align:center;margin-bottom:14px;display:flex;align-items:center;gap:10px;
+}
+.f-label::before{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--border2))}
+.f-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border2),transparent)}
+.f-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.f-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:16px 12px;text-align:center;position:relative;overflow:hidden}
+.f-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),transparent)}
+.f-card-name{font-size:10px;letter-spacing:.2em;color:var(--text2);text-transform:uppercase;margin-bottom:8px}
+.f-card-content{font-size:12.5px;color:var(--text);line-height:1.65;margin-bottom:12px}
+.f-card-price{font-family:'Playfair Display',serif;font-size:28px;color:var(--gold3)}
+.f-card-price sub{font-size:13px;font-family:'Jost',sans-serif;color:var(--gold)}
+.f-note{background:rgba(201,168,76,0.05);border:1px solid var(--border);border-radius:5px;padding:10px 14px;font-size:11px;color:var(--text2);line-height:1.65;text-align:center}
+.f-note b{color:var(--gold);font-weight:500}
+
+/* NAV */
+.nav-wrap{position:sticky;top:0;z-index:200;background:rgba(7,14,8,0.95);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-scroll{overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch}
+.nav-scroll::-webkit-scrollbar{display:none}
+.nav-inner{display:flex;padding:0 10px;min-width:max-content;gap:0}
+.nav-btn{background:none;border:none;border-bottom:2px solid transparent;color:var(--text2);font-family:'Jost',sans-serif;font-size:10.5px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;padding:13px 11px;cursor:pointer;white-space:nowrap;transition:color .2s,border-color .2s}
+.nav-btn:hover{color:var(--gold)}
+.nav-btn.active{color:var(--gold2);border-bottom-color:var(--gold)}
+
+/* MENU SECTION */
+.menu-section{padding:36px 14px 0;display:none}
+.menu-section.visible{display:block}
+.sec-header{text-align:center;margin-bottom:28px}
+.sec-title{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(28px,7vw,42px);color:var(--gold2);font-weight:400;display:block}
+.sec-orn{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:12px}
+.s-line{width:50px;height:1px}
+.s-line.l{background:linear-gradient(90deg,transparent,var(--border2))}
+.s-line.r{background:linear-gradient(90deg,var(--border2),transparent)}
+.s-dia{width:5px;height:5px;border:1px solid var(--gold);transform:rotate(45deg)}
+
+/* DISH CARD */
+.dish-list{display:flex;flex-direction:column;gap:10px}
+.dish-card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;display:grid;grid-template-columns:110px 1fr;min-height:110px;transition:border-color .25s}
+.dish-card:hover{border-color:rgba(201,168,76,0.3)}
+
+/* Photo zone */
+.dish-photo{position:relative;overflow:hidden;background:var(--card2);cursor:pointer}
+.dish-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .3s}
+.dish-photo-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--text3);border-right:1px solid var(--border);transition:background .2s}
+.dish-photo-placeholder:hover{background:rgba(201,168,76,0.05)}
+.dish-photo-placeholder svg{width:22px;height:22px;opacity:.4}
+.dish-photo-placeholder span{font-size:9px;letter-spacing:.12em;text-transform:uppercase;opacity:.5;text-align:center;padding:0 6px;line-height:1.4}
+.dish-photo input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.dish-photo.has-photo .dish-photo-placeholder{display:none}
+.dish-photo:not(.has-photo) img{display:none}
+
+.dish-info{padding:14px 14px 14px 16px;display:flex;flex-direction:column;justify-content:space-between}
+.dish-top{flex:1}
+.dish-name{font-family:'Playfair Display',serif;font-size:15px;color:var(--text);font-weight:400;line-height:1.25;margin-bottom:5px}
+.dish-star{color:var(--gold);font-size:11px;margin-left:4px}
+.dish-desc{font-size:11.5px;color:var(--text2);line-height:1.6;font-style:italic}
+.dish-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:10px;gap:8px;flex-wrap:wrap}
+.dish-price{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold2)}
+.dish-badge{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.4);padding:3px 8px;border-radius:2px;white-space:nowrap}
+
+/* ACCOMPAGNEMENTS */
+.accomp-section{margin-top:24px;border-top:1px solid var(--border);padding-top:20px}
+.accomp-title{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--gold);font-weight:400;margin-bottom:8px;text-align:center}
+.accomp-note{font-size:11px;color:var(--text3);text-align:center;font-style:italic;margin-bottom:12px}
+.accomp-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.accomp-item{background:var(--card2);border:1px solid var(--border);border-radius:5px;padding:10px 12px;font-size:12px;color:var(--text);display:flex;align-items:center;gap:8px}
+.accomp-item::before{content:'';width:4px;height:4px;border:1px solid var(--gold);transform:rotate(45deg);flex-shrink:0}
+
+/* DRINKS */
+.drink-group{margin-bottom:28px}
+.drink-group-title{font-size:9px;letter-spacing:.4em;color:var(--gold);text-transform:uppercase;font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.drink-group-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.drink-row{display:flex;align-items:baseline;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(201,168,76,0.07);gap:12px}
+.drink-row:last-child{border-bottom:none}
+.drink-name{font-size:13px;color:var(--text);flex:1}
+.drink-sub{font-size:11px;color:var(--text2);font-style:italic;margin-top:1px}
+.drink-price{font-family:'Playfair Display',serif;font-size:16px;color:var(--gold2);white-space:nowrap}
+.drink-variants{font-size:11px;color:var(--text3);font-style:italic;margin-top:2px}
+
+/* HOOKAH */
+.hookah-wrap{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:8px}
+.hookah-brands{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.hookah-brand{text-align:center;padding:14px;border:1px solid var(--border);border-radius:6px}
+.hookah-brand-name{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold2);margin-bottom:4px}
+.hookah-brand-price{font-size:12px;color:var(--text2)}
+.hookah-brand-price b{color:var(--gold);font-weight:500}
+.hookah-flavors-title{font-size:10px;letter-spacing:.3em;color:var(--text2);text-transform:uppercase;margin-bottom:10px;text-align:center}
+.hookah-flavors{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.hookah-flavor{font-size:11px;color:var(--text2);background:var(--card2);border:1px solid var(--border);border-radius:3px;padding:5px 10px}
+
+/* FOOTER */
+.menu-footer{text-align:center;padding:40px 24px 20px;border-top:1px solid var(--border);margin-top:40px}
+.footer-name{font-family:'Playfair Display',serif;font-size:22px;color:var(--gold);font-style:italic;margin-bottom:6px}
+.footer-address{font-size:12px;color:var(--text3);letter-spacing:.08em}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--gold);color:#070e08;font-size:12px;font-weight:500;letter-spacing:.08em;padding:10px 20px;border-radius:4px;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;z-index:999;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">A Taste of Elegance</div>
+  <span class="hero-name">Havana</span>
+  <span class="hero-lounge">Lounge</span>
+  <div class="hero-orn">
+    <div class="orn-line l"></div>
+    <div class="orn-diamond"></div>
+    <div class="orn-diamond" style="margin:0 4px"></div>
+    <div class="orn-diamond"></div>
+    <div class="orn-line r"></div>
+  </div>
+  <div class="hero-tagline">A Taste of Elegance</div>
+  <div class="hero-address">159 avenue Paul Kruger — Villeurbanne 69100</div>
+</div>
+
+<!-- FORMULES -->
+<div class="formule-wrap">
+  <div class="f-label">Formules · Lundi au Jeudi</div>
+  <div class="f-cards">
+    <div class="f-card">
+      <div class="f-card-name">Formule Gourmande</div>
+      <div class="f-card-content">Entrée + Plat + Dessert</div>
+      <div class="f-card-price">32<sub>,99€</sub></div>
+    </div>
+    <div class="f-card">
+      <div class="f-card-name">Formule Chicha</div>
+      <div class="f-card-content">Entrée + Plat + Chicha Khaloud</div>
+      <div class="f-card-price">44<sub>,99€</sub></div>
+    </div>
+  </div>
+  <div class="f-note"><b>★ Plats étoilés éligibles aux formules</b><br>Sauf veille de jours fériés, jours fériés et Saint-Valentin</div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav-scroll">
+    <div class="nav-inner">
+      <button class="nav-btn active" onclick="showSection('entrees',this)">Entrées</button>
+      <button class="nav-btn" onclick="showSection('pasta',this)">Pasta</button>
+      <button class="nav-btn" onclick="showSection('viandes',this)">Viandes & Poissons</button>
+      <button class="nav-btn" onclick="showSection('burgers',this)">Burgers</button>
+      <button class="nav-btn" onclick="showSection('desserts',this)">Desserts</button>
+      <button class="nav-btn" onclick="showSection('boissons',this)">Boissons</button>
+      <button class="nav-btn" onclick="showSection('mocktails',this)">Mocktails</button>
+      <button class="nav-btn" onclick="showSection('hookah',this)">Hookah</button>
+    </div>
+  </div>
+</div>
+
+<!-- ENTRÉES -->
+<div id="entrees" class="menu-section visible">
+  <div class="sec-header">
+    <span class="sec-title">Entrées</span>
+    <div class="sec-orn"><div class="s-line l"></div><div class="s-dia"></div><div class="s-line r"></div></div>
+  </div>
+  <div class="dish-list">
+    <div class="dish-card">
+      <div class="dish-photo" id="p-cesar"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Salade César"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-cesar')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Salade César <span class="dish-star">★</span></div><div class="dish-desc">Sauce César, poulet pané, tomate, ail écrasé, jus de citron</div></div><div class="dish-bottom"><div class="dish-price">14€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-burrata"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Burrata"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-burrata')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Salade Burrata Crémeuse <span class="dish-star">★</span></div><div class="dish-desc">Burrata, basilic frais, tomate, salade, huile d'olive, sauce balsamic</div></div><div class="dish-bottom"><div class="dish-price">16€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-carpaccio"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Carpaccio"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-carpaccio')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Carpaccio de Bœuf</div><div class="dish-desc">Bœuf, parmesan, roquette, tomate, pesto, sel & poivre</div></div><div class="dish-bottom"><div class="dish-price">17€</div><div class="dish-badge">Burrata +6,50€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-tempura"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Crevettes Tempura"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-tempura')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Crevettes Tempura</div><div class="dish-desc">7 pièces — croustillantes, servies avec sauce</div></div><div class="dish-bottom"><div class="dish-price">15€</div><div class="dish-badge">Nouveau</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PASTA -->
+<div id="pasta" class="menu-section">
+  <div class="sec-header">
+    <span class="sec-title">Pasta</span>
+    <div class="sec-orn"><div class="s-line l"></div><div class="s-dia"></div><div class="s-line r"></div></div>
+  </div>
+  <div class="dish-list">
+    <div class="dish-card">
+      <div class="dish-photo" id="p-alfredo"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Alfredo"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-alfredo')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Pasta Alfredo au Poulet <span class="dish-star">★</span></div><div class="dish-desc">Crème poulet et champignons, parmesan, persil</div></div><div class="dish-bottom"><div class="dish-price">16€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-pesto"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Pesto"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-pesto')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Pasta al Pesto <span class="dish-star">★</span></div><div class="dish-desc">Sauce pesto maison, parmesan, huile d'olive</div></div><div class="dish-bottom"><div class="dish-price">17€</div><div class="dish-badge">Burrata +6,50€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-gnocchi"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Gnocchi"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-gnocchi')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Gnocchi Pesto Rosso</div><div class="dish-desc">Gnocchi maison, pesto rosso, parmesan, basilic frais</div></div><div class="dish-bottom"><div class="dish-price">17€</div><div class="dish-badge">Nouveau</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-ravioli"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Ravioli Truffe"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-ravioli')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Raviolis à la Crème de Truffe</div><div class="dish-desc">Raviolis frais, crème à la truffe, parmesan, huile d'olive</div></div><div class="dish-bottom"><div class="dish-price">19€</div><div class="dish-badge">Nouveau</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- VIANDES & POISSONS -->
+<div id="viandes" class="menu-section">
+  <div class="sec-header">
+    <span class="sec-title">Viandes & Poissons</span>
+    <div class="sec-orn"><div class="s-line l"></div><div class="s-dia"></div><div class="s-line r"></div></div>
+  </div>
+  <div class="dish-list">
+    <div class="dish-card">
+      <div class="dish-photo" id="p-escalope"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Escalope"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-escalope')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Escalope Milanaise <span class="dish-star">★</span></div><div class="dish-desc">Escalope panée, salade fraîche, accompagnement au choix</div></div><div class="dish-bottom"><div class="dish-price">19€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-saumon"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Saumon"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-saumon')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Pavé de Saumon Grillé</div><div class="dish-desc">Saumon frais grillé, salade, accompagnement au choix</div></div><div class="dish-bottom"><div class="dish-price">24€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-veau"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Veau"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-veau')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Côte de Veau Grillée</div><div class="dish-desc">Côte de veau, salade, accompagnement au choix</div></div><div class="dish-bottom"><div class="dish-price">25€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-entrecote"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Entrecôte"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-entrecote')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Entrecôte de Bœuf Grillé</div><div class="dish-desc">Entrecôte de bœuf, salade, accompagnement au choix</div></div><div class="dish-bottom"><div class="dish-price">25€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-filet"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Filet"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-filet')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Filet de Bœuf Grillé</div><div class="dish-desc">Filet de bœuf, salade, accompagnement au choix</div></div><div class="dish-bottom"><div class="dish-price">29€</div></div></div>
+    </div>
+  </div>
+  <div class="accomp-section">
+    <div class="accomp-title">Accompagnements</div>
+    <div class="accomp-note">Salade + 1 accompagnement inclus — supplémentaire +4€</div>
+    <div class="accomp-grid">
+      <div class="accomp-item">Poêlée de légumes</div>
+      <div class="accomp-item">Frites maison</div>
+      <div class="accomp-item">Purée de patates douces</div>
+      <div class="accomp-item">Riz parfumé</div>
+      <div class="accomp-item">Pommes de terre grenailles</div>
+    </div>
+  </div>
+</div>
+
+<!-- BURGERS -->
+<div id="burgers" class="menu-section">
+  <div class="sec-header">
+    <span class="sec-title">Burgers</span>
+    <div class="sec-orn"><div class="s-line l"></div><div class="s-dia"></div><div class="s-line r"></div></div>
+  </div>
+  <div class="dish-list">
+    <div class="dish-card">
+      <div class="dish-photo" id="p-b-chicken"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Burger Chicken"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-b-chicken')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Burger Chicken <span class="dish-star">★</span></div><div class="dish-desc">Blanc de poulet grillé, oignons caramélisés, fromage fondant, frites maison, salade</div></div><div class="dish-bottom"><div class="dish-price">16€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-b-saumon"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Burger Saumon"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-b-saumon')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Burger Saumon & Fromage Cottage <span class="dish-star">★</span></div><div class="dish-desc">Filet de saumon grillé, fromage cottage crémeux, salade verte, frites maison</div></div><div class="dish-bottom"><div class="dish-price">17€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-b-havana"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Burger Havana"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-b-havana')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Burger Havana</div><div class="dish-desc">Steak haché de bœuf, oignons caramélisés, salade, sauce maison, frites maison</div></div><div class="dish-bottom"><div class="dish-price">18€</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- DESSERTS -->
+<div id="desserts" class="menu-section">
+  <div class="sec-header">
+    <span class="sec-title">Desserts</span>
+    <div class="sec-orn"><div class="s-line l"></div><div class="s-dia"></div><div class="s-line r"></div></div>
+  </div>
+  <div class="dish-list">
+    <div class="dish-card">
+      <div class="dish-photo" id="p-fondant"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Fondant"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-fondant')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Fondant au Chocolat <span class="dish-star">★</span></div><div class="dish-desc">Cœur coulant, boule de glace vanille</div></div><div class="dish-bottom"><div class="dish-price">7€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-tiramisu"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Tiramisu"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-tiramisu')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Tiramisu <span class="dish-star">★</span></div><div class="dish-desc">Mascarpone, café, cacao, recette maison</div></div><div class="dish-bottom"><div class="dish-price">7,50€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-creme"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Crème Brûlée"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-creme')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Crème Brûlée <span class="dish-star">★</span></div><div class="dish-desc">Crème vanille, caramel croustillant</div></div><div class="dish-bottom"><div class="dish-price">7,50€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-painperdu"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Pain Perdu"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-painperdu')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Pain Perdu Gourmand Caramel</div><div class="dish-desc">Pain brioché, caramel beurre salé, chantilly</div></div><div class="dish-bottom"><div class="dish-price">8,50€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-fruits"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Fruits & Sorbet"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-fruits')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Fruits de Saison & Sorbet</div><div class="dish-desc">Sélection de fruits frais, sorbet maison</div></div><div class="dish-bottom"><div class="dish-price">8,50€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-pavlova"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Pavlova"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-pavlova')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Pavlova Fruits Rouges</div><div class="dish-desc">Meringue croustillante, chantilly, fruits rouges frais</div></div><div class="dish-bottom"><div class="dish-price">8,50€</div><div class="dish-badge">Nouveau</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-cafegourmand"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Café Gourmand"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-cafegourmand')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Café Gourmand</div><div class="dish-desc">Expresso accompagné de mignardises maison</div></div><div class="dish-bottom"><div class="dish-price">9€</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- BOISSONS -->
+<div id="boissons" class="menu-section">
+  <div class="sec-header">
+    <span class="sec-title">Boissons</span>
+    <div class="sec-orn"><div class="s-line l"></div><div class="s-dia"></div><div class="s-line r"></div></div>
+  </div>
+  <div class="drink-group">
+    <div class="drink-group-title">Soft drinks</div>
+    <div class="drink-row"><div><div class="drink-name">Coca-Cola</div></div><div class="drink-price">4,50€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Coca Zéro</div></div><div class="drink-price">4,50€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Coca Cherry</div></div><div class="drink-price">4,50€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Ice Tea</div></div><div class="drink-price">4,50€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Orangina</div></div><div class="drink-price">4,50€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Oasis Tropical</div></div><div class="drink-price">4,50€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Red Bull</div><div class="drink-variants">Classique, Abricot, Vanilla Berry, Myrtille, Coco Açaï</div></div><div class="drink-price">5€</div></div>
+  </div>
+  <div class="drink-group">
+    <div class="drink-group-title">Eaux</div>
+    <div class="drink-row"><div><div class="drink-name">Eau Plate ½L</div></div><div class="drink-price">3,50€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Eau Plate 1L</div></div><div class="drink-price">5€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Eau Gazeuse ½L</div></div><div class="drink-price">3,50€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Eau Gazeuse 1L</div></div><div class="drink-price">5€</div></div>
+  </div>
+  <div class="drink-group">
+    <div class="drink-group-title">Sans alcool — Chavin</div>
+    <div class="drink-row"><div><div class="drink-name">Bière sans alcool</div><div class="drink-sub">33cl</div></div><div class="drink-price">5€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Rosé sans alcool</div><div class="drink-sub">Verre · Bouteille 75cl</div></div><div class="drink-price">6€ · 30€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Champagne sans alcool</div><div class="drink-sub">Bouteille 75cl</div></div><div class="drink-price">35€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Vin Rouge sans alcool</div><div class="drink-sub">Verre · Bouteille 75cl</div></div><div class="drink-price">6€ · 30€</div></div>
+  </div>
+  <div class="drink-group">
+    <div class="drink-group-title">Boissons Chaudes</div>
+    <div class="drink-row"><div><div class="drink-name">Expresso</div></div><div class="drink-price">2€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Double Expresso</div></div><div class="drink-price">3€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Café Allongé</div></div><div class="drink-price">2€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Cappuccino</div></div><div class="drink-price">4,50€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Capuccin Nestlé</div></div><div class="drink-price">2,60€</div></div>
+    <div class="drink-row"><div><div class="drink-name">Thé à la Menthe</div><div class="drink-sub">Théière</div></div><div class="drink-price">6€</div></div>
+  </div>
+</div>
+
+<!-- MOCKTAILS -->
+<div id="mocktails" class="menu-section">
+  <div class="sec-header">
+    <span class="sec-title">Mocktails</span>
+    <div class="sec-orn"><div class="s-line l"></div><div class="s-dia"></div><div class="s-line r"></div></div>
+  </div>
+  <div class="dish-list">
+    <div class="dish-card">
+      <div class="dish-photo" id="p-vmojito"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Virgin Mojito"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-vmojito')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Virgin Mojito</div><div class="dish-desc">Menthe fraîche, citron vert, sucre de canne, eau gazeuse</div></div><div class="dish-bottom"><div class="dish-price">8,50€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-bluelagoon"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Blue Lagoon"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-bluelagoon')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Virgin Blue Lagoon</div><div class="dish-desc">Curaçao bleu sans alcool, limonade, citron, glaçons</div></div><div class="dish-bottom"><div class="dish-price">8,50€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-mfraise"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Mojito Fraise"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-mfraise')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Mojito Fraise</div><div class="dish-desc">Fraises fraîches, menthe, citron vert, eau gazeuse</div></div><div class="dish-bottom"><div class="dish-price">8,50€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-mmangue"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Mojito Mangue"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-mmangue')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Mojito Mangue</div><div class="dish-desc">Mangue fraîche, menthe, citron vert, eau gazeuse</div></div><div class="dish-bottom"><div class="dish-price">8,50€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-sexbeach"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Sex on the Beach"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-sexbeach')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Sex on the Beach</div><div class="dish-desc">Pêche, orange, grenadine, jus de cranberry</div></div><div class="dish-bottom"><div class="dish-price">8,50€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-blackberry"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Blackberry"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-blackberry')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Blackberry Mocktail</div><div class="dish-desc">Mûres fraîches, citron, sirop de canne, eau gazeuse</div></div><div class="dish-bottom"><div class="dish-price">8,50€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-pina"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Piña Colada"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-pina')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Piña Colada</div><div class="dish-desc">Ananas, lait de coco, crème, jus de citron</div></div><div class="dish-bottom"><div class="dish-price">8,50€</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-pornstar"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Porn Star Martini"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-pornstar')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Porn Star Martini</div><div class="dish-desc">Fruit de la passion, vanille, jus d'ananas, citron</div></div><div class="dish-bottom"><div class="dish-price">8,50€</div><div class="dish-badge">Nouveau</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-pasteque"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="L'Havana-Pastèque"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-pasteque')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">L'Havana-Pastèque</div><div class="dish-desc">Pastèque fraîche, menthe, citron vert, eau gazeuse</div></div><div class="dish-bottom"><div class="dish-price">8,50€</div><div class="dish-badge">Nouveau</div></div></div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-photo" id="p-cocktailhavana"><div class="dish-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Ajouter photo</span></div><img src="" alt="Cocktail le Havana"><input type="file" accept="image/*" onchange="loadPhoto(this,'p-cocktailhavana')"></div>
+      <div class="dish-info"><div class="dish-top"><div class="dish-name">Cocktail Le Havana</div><div class="dish-desc">Notre signature — recette secrète de la maison</div></div><div class="dish-bottom"><div class="dish-price">11€</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- HOOKAH -->
+<div id="hookah" class="menu-section">
+  <div class="sec-header">
+    <span class="sec-title">Hookah</span>
+    <div class="sec-orn"><div class="s-line l"></div><div class="s-dia"></div><div class="s-line r"></div></div>
+  </div>
+  <div class="hookah-wrap">
+    <div class="hookah-brands">
+      <div class="hookah-brand">
+        <div class="hookah-brand-name">Kaloud</div>
+        <div class="hookah-brand-price"><b>20€</b></div>
+      </div>
+      <div class="hookah-brand">
+        <div class="hookah-brand-name">Quasar</div>
+        <div class="hookah-brand-price"><b>25€</b></div>
+      </div>
+    </div>
+    <div class="hookah-flavors-title">Parfums disponibles</div>
+    <div class="hookah-flavors">
+      <div class="hookah-flavor">Love 66</div>
+      <div class="hookah-flavor">Hawaï</div>
+      <div class="hookah-flavor">Mia Mori</div>
+      <div class="hookah-flavor">Menthe</div>
+      <div class="hookah-flavor">Pomme</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="menu-footer">
+  <div class="footer-name">Havana Lounge</div>
+  <div class="footer-address">159 avenue Paul Kruger — Villeurbanne 69100</div>
+</div>
+
+</div>
+
+<div class="toast" id="toast">Photo ajoutée ✓</div>
+
+<script>
+function showSection(id,btn){
+  document.querySelectorAll('.menu-section').forEach(s=>s.classList.remove('visible'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('visible');
+  btn.classList.add('active');
+  const nav=document.querySelector('.nav-wrap');
+  window.scrollTo({top:nav.offsetTop-2,behavior:'smooth'});
+}
+function loadPhoto(input,id){
+  if(!input.files||!input.files[0])return;
+  const reader=new FileReader();
+  reader.onload=function(e){
+    const c=document.getElementById(id);
+    c.querySelector('img').src=e.target.result;
+    c.classList.add('has-photo');
+    const t=document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2000);
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+</script>
+</body>
+</html>
