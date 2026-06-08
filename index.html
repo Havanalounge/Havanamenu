@@ -104,7 +104,7 @@ body::before{
 .hero-name{
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(72px,18vw,112px);
-  font-weight:600;
+  font-weight:400;
   line-height:0.9;
   display:block;
   letter-spacing:.04em;
@@ -577,6 +577,10 @@ body::before{
       <div class="dish-price">15€</div>
     </div>
     <div class="dish-card">
+      <div class="dish-left"><div class="dish-name">Tartare de Saumon Avocat</div><div class="dish-desc">Saumon frais, avocat, citron, huile d'olive</div></div>
+      <div class="dish-price">16€</div>
+    </div>
+    <div class="dish-card">
       <div class="dish-left"><div class="dish-name">Salade Burrata Crémeuse <span class="dish-star">★</span></div><div class="dish-desc">Burrata, basilic frais, tomate, salade, huile d'olive, sauce balsamic</div></div>
       <div class="dish-price">16€</div>
     </div>
@@ -825,8 +829,12 @@ function showSection(id,btn){
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById(id).classList.add('visible');
   btn.classList.add('active');
-  const nav=document.querySelector('.nav-wrap');
-  window.scrollTo({top:nav.offsetTop-2,behavior:'smooth'});
+  // Scroll vers le haut de la nav, compatible mobile
+  setTimeout(function(){
+    var nav = document.querySelector('.nav-wrap');
+    var y = nav.getBoundingClientRect().top + window.pageYOffset - 2;
+    window.scrollTo({top: y, behavior: 'smooth'});
+  }, 10);
 }
 </script>
 </body>
